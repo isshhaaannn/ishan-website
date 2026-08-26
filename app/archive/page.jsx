@@ -3,7 +3,7 @@ import { allSlides, getRooms, getProjects, getCatalog, spread } from '@/lib/cata
 import s from './archive.module.css'
 
 export const metadata = {
-  title: 'Archive — Ishaan',
+  title: 'Archive — Ishan',
   description: 'Every frame in the studio, filterable.',
 }
 

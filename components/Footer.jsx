@@ -3,7 +3,7 @@ import s from './Footer.module.css'
 
 const ELSEWHERE = [
   { label: 'Instagram', href: 'https://instagram.com/isshhaaannn_' },
-  { label: 'Email', href: 'mailto:hello@ishaan.design' },
+  { label: 'Email', href: 'mailto:hello@Ishan.design' },
 ]
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className={s.footer}>
       <div className="shell">
         <div className={s.top}>
-          <a href="mailto:hello@ishaan.design" className={`display display-l ${s.pitch}`}>
+          <a href="mailto:hello@Ishan.design" className={`display display-l ${s.pitch}`}>
             Got something
             <br />
             worth <em>making</em>?
@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
 
         <div className={s.base}>
-          <span className="mono">Ishaan &middot; Graphic designer</span>
+          <span className="mono">Ishan &middot; Graphic designer</span>
           <span className="mono">Think. Design. Win.</span>
         </div>
       </div>

@@ -22,7 +22,7 @@ const ROOT = path.resolve(import.meta.dirname, '..')
 const MEDIA = path.join(ROOT, 'public', 'media')
 
 const { SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY } = process.env
-const BUCKET = process.env.SUPABASE_MEDIA_BUCKET || 'ishaan-website assets'
+const BUCKET = process.env.SUPABASE_MEDIA_BUCKET || 'Ishan-website assets'
 const CONCURRENCY = Number(process.env.UPLOAD_CONCURRENCY || 12)
 const DRY = process.argv.includes('--dry-run')
 

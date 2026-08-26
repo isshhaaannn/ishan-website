@@ -1,0 +1,5 @@
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml1Z3d1bnBxcHFwZHp3aXJleGltIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4NTMwNjM2NCwiZXhwIjoyMTAwODgyMzY0fQ.Yb0PFBg5O8XYbxLtXIty_jZ_N2mM5_1bhCTpIhjtktE
+SUPABASE_URL=https://iugwunpqpqpdzwirexim.supabase.co
+# Media lives in the Supabase bucket, not the deployment.
+# Comment this out to serve from public/media locally instead.
+NEXT_PUBLIC_MEDIA_BASE=https://iugwunpqpqpdzwirexim.supabase.co/storage/v1/object/public/Ishan-website%20assets

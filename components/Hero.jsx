@@ -83,7 +83,7 @@ export default function Hero({ slides, stats }) {
       <div className={s.foot}>
         <div className={s.footL}>
           <p className={s.lede}>
-            Ishaan is a graphic designer. He makes the frames that stop a thumb,
+            Ishan is a graphic designer. He makes the frames that stop a thumb,
             then the brand systems underneath them.
           </p>
         </div>

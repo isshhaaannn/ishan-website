@@ -3,7 +3,7 @@ import { getCatalog, getRooms, projectsInRoom } from '@/lib/catalog'
 import s from './work.module.css'
 
 export const metadata = {
-  title: 'Work — Ishaan',
+  title: 'Work — Ishan',
   description: 'Every project, grouped by what it is.',
 }
 

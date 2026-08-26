@@ -3,7 +3,7 @@ import { getCatalog } from '@/lib/catalog'
 import s from './about.module.css'
 
 export const metadata = {
-  title: 'About — Ishaan',
+  title: 'About — Ishan',
   description: 'Graphic designer. Social first, everything after.',
 }
 

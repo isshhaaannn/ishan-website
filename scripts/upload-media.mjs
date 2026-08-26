@@ -4,7 +4,7 @@
 //
 //   npm i --no-save @aws-sdk/client-s3
 //   S3_ENDPOINT=https://<accountid>.r2.cloudflarestorage.com \
-//   S3_BUCKET=ishaan-media \
+//   S3_BUCKET=Ishan-media \
 //   S3_ACCESS_KEY_ID=... \
 //   S3_SECRET_ACCESS_KEY=... \
 //   node scripts/upload-media.mjs

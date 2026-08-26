@@ -31,7 +31,7 @@ const MEDIA_ORIGIN = (() => {
 })()
 
 export const metadata = {
-  title: 'Ishaan',
+  title: 'Ishan',
   description: 'Designer. Social first, everything after.',
 }
 

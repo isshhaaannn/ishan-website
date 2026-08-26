@@ -27,7 +27,7 @@ export default function Nav() {
       <a href="#main" className={s.skip}>Skip to content</a>
       <div className={s.inner}>
         <Link href="/" className={s.mark}>
-          Ishaan
+          Ishan
           <span className={s.dot} aria-hidden="true" />
         </Link>
         <nav className={s.links} aria-label="Primary">
@@ -40,7 +40,7 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
-          <a href="mailto:hello@ishaan.design" className={s.cta}>Available</a>
+          <a href="mailto:hello@Ishan.design" className={s.cta}>Available</a>
         </nav>
       </div>
     </header>

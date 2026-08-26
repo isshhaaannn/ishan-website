@@ -1,4 +1,4 @@
-# Ishaan portfolio
+# Ishan portfolio
 
 Next.js 15, static. 524 creatives across 25 projects, pulled from the Drive
 folder and refiled by client rather than by medium.
@@ -34,7 +34,7 @@ Derivatives already on disk are skipped, so re-running is cheap.
 
 ### Refetching from Drive
 
-`data/manifest.json` holds every Drive file id and its thumbnail URL. If Ishaan
+`data/manifest.json` holds every Drive file id and its thumbnail URL. If Ishan
 adds work, recrawl the folder and rebuild:
 
 ```bash
@@ -55,7 +55,7 @@ node scripts/build-catalog.mjs
 
 ## The WebGL
 
-There are no 3D models. Every plane in the rail is one of Ishaan's own images,
+There are no 3D models. Every plane in the rail is one of Ishan's own images,
 bent along an arc and sheared by scrub velocity. Two places use it:
 
 - **Hero**, drifting on its own, thumbnail textures.
@@ -75,12 +75,12 @@ WebGL, so it does not use it.
 - **DM Mono** for counts, labels and metadata
 
 Ground is sand and off-white. The only accent is `--tide`, an electric blue
-lifted from Ishaan's own Jerseyfolio work. Every colour is a token in
+lifted from Ishan's own Jerseyfolio work. Every colour is a token in
 `app/globals.css` and is redefined for dark in all three theme states.
 
 ## Known gaps
 
-- `hello@ishaan.design` and the Instagram handle are placeholders.
+- `hello@Ishan.design` and the Instagram handle are placeholders.
 - Two Drive clients are filed under working names (`christian`, `Banners`).
 - 12 `.psd` working files in the Drive have no thumbnail and are not on the site.
 - `public/media` is 124 MB. Move it to a CDN before launch.

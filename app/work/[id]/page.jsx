@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   const project = getProject(id)
   if (!project) return {}
   return {
-    title: `${project.title} — Ishaan`,
+    title: `${project.title} — Ishan`,
     description: project.blurb,
   }
 }
