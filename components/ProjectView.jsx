@@ -1,9 +1,13 @@
 'use client'
 
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
-import SlideViewer from './SlideViewer'
 import s from './ProjectView.module.css'
+
+// SlideViewer pulls in three.js and react-three-fiber (~230KB). It only ever
+// renders after a click, so it has no business in the project page's bundle.
+const SlideViewer = dynamic(() => import('./SlideViewer'), { ssr: false })
 
 // Each run in this project is one carousel, so it renders as one filmstrip.
 // Clicking any frame opens that run in the scrubbable viewer.
