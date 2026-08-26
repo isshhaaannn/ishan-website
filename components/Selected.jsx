@@ -28,12 +28,17 @@ export default function Selected({ projects }) {
                     aspectRatio: `${p.cover.w} / ${p.cover.h}`,
                   }}
                 >
+                  {/* The hero is 100svh, so every card here starts below the
+                      fold behind a Reveal. Eager loading only stole bandwidth
+                      from the hero. */}
                   <img
-                    src={p.cover.src}
+                    src={p.cover.mid}
+                    srcSet={`${p.cover.thumb} 520w, ${p.cover.mid} 900w, ${p.cover.src} 1400w`}
+                    sizes="(max-width: 760px) 92vw, (min-width: 1520px) 690px, 45vw"
                     alt={`${p.title} cover`}
                     width={p.cover.w}
                     height={p.cover.h}
-                    loading={i < 2 ? 'eager' : 'lazy'}
+                    loading="lazy"
                     decoding="async"
                     className={s.img}
                   />

@@ -8,6 +8,10 @@ import s from './WorkIndex.module.css'
 // with the work. Hovering a row lifts its cover to the cursor.
 export default function WorkIndex({ projects, heading = 'Index' }) {
   const [active, setActive] = useState(null)
+  // Covers only enter the DOM once their row has been pointed at. Mounted at
+  // opacity 0 they still downloaded — 25 images nobody had asked to see.
+  // Once mounted they stay, so repeat hovers keep the cross-fade.
+  const [seen, setSeen] = useState(() => new Set())
   const previewRef = useRef(null)
   const pos = useRef({ x: 0, y: 0, tx: 0, ty: 0 })
   const listRef = useRef(null)
@@ -34,6 +38,11 @@ export default function WorkIndex({ projects, heading = 'Index' }) {
     pos.current.ty = e.clientY - rect.top
   }, [])
 
+  const reveal = useCallback((project) => {
+    setSeen((prev) => (prev.has(project.id) ? prev : new Set(prev).add(project.id)))
+    setActive(project)
+  }, [])
+
   const onEnterRow = (project, e) => {
     const rect = listRef.current?.getBoundingClientRect()
     if (rect) {
@@ -43,7 +52,7 @@ export default function WorkIndex({ projects, heading = 'Index' }) {
         pos.current.y = pos.current.ty = e.clientY - rect.top
       }
     }
-    setActive(project)
+    reveal(project)
   }
 
   return (
@@ -61,12 +70,13 @@ export default function WorkIndex({ projects, heading = 'Index' }) {
           onMouseLeave={() => setActive(null)}
         >
           <div ref={previewRef} className={`${s.preview} ${active ? s.on : ''}`} aria-hidden="true">
-            {projects.map((p) => (
+            {projects.filter((p) => seen.has(p.id)).map((p) => (
               <img
                 key={p.id}
                 src={p.cover.thumb}
+                srcSet={`${p.cover.small} 260w, ${p.cover.thumb} 520w`}
+                sizes="(min-width: 1550px) 310px, (min-width: 1050px) 20vw, 210px"
                 alt=""
-                loading="lazy"
                 decoding="async"
                 className={active?.id === p.id ? s.shown : ''}
                 style={{ backgroundColor: p.cover.color }}

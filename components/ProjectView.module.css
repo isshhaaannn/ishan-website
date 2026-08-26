@@ -93,6 +93,10 @@
   scroll-snap-align: start;
   cursor: zoom-in;
   background: var(--foam);
+  /* Long runs put 200+ frames in one strip. Width comes from the explicit
+     height and the inline aspect-ratio, not from content, so skipping the
+     off-screen ones leaves the scroll length intact. */
+  content-visibility: auto;
 }
 
 .frame img {

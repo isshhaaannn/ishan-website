@@ -26,7 +26,14 @@ export default function ArchiveStrip({ rows, total }) {
                 <div className={s.set} key={copy}>
                   {row.map((img, i) => (
                     <div className={s.cell} key={`${copy}-${i}`} style={{ backgroundColor: img.color }}>
-                      <img src={img.thumb} alt="" loading="lazy" decoding="async" />
+                      <img
+                        src={img.small}
+                        srcSet={`${img.small} 260w, ${img.thumb} 520w`}
+                        sizes="(min-width: 1550px) 186px, (min-width: 934px) 12vw, 112px"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                   ))}
                 </div>

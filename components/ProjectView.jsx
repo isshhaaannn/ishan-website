@@ -47,6 +47,8 @@ export default function ProjectView({ project, next }) {
           <div className={s.cover} style={{ backgroundColor: project.cover.color }}>
             <img
               src={project.cover.src}
+              srcSet={`${project.cover.mid} 900w, ${project.cover.src} 1400w`}
+              sizes="100vw"
               alt={`${project.title} lead image`}
               width={project.cover.w}
               height={project.cover.h}

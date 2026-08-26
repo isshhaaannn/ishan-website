@@ -4,3 +4,7 @@ out/
 assets/raw/
 .DS_Store
 *.log
+
+# Derivatives live in the bucket, not the deployment.
+# Rebuild with `node scripts/build-catalog.mjs`, ship with `scripts/upload-media.mjs`.
+public/media/
