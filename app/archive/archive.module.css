@@ -1,0 +1,7 @@
+.page { padding-top: clamp(110px, 14vw, 180px); }
+
+.head { padding-bottom: clamp(28px, 4vw, 52px); }
+
+.title { margin-bottom: clamp(20px, 3vw, 34px); }
+
+.lede { max-width: 42ch; }

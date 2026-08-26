@@ -1,0 +1,43 @@
+.footer {
+  border-top: 1px solid var(--line);
+  padding: clamp(56px, 8vw, 110px) 0 32px;
+  background: var(--foam);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(32px, 6vw, 90px);
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.pitch {
+  display: inline-block;
+  max-width: 12ch;
+  transition: color 0.4s var(--ease);
+}
+.pitch:hover { color: var(--tide); }
+
+.cols { display: flex; gap: clamp(32px, 5vw, 72px); }
+
+.cols div { display: flex; flex-direction: column; gap: 9px; }
+.cols span { margin-bottom: 3px; }
+
+.cols a {
+  font-size: 14.5px;
+  color: var(--ink-2);
+  transition: color 0.3s var(--ease);
+  width: fit-content;
+}
+.cols a:hover { color: var(--ink); }
+
+.base {
+  margin-top: clamp(48px, 7vw, 90px);
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}

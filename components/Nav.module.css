@@ -1,0 +1,101 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  transition: background 0.5s var(--ease), border-color 0.5s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+.nav.lifted {
+  background: color-mix(in srgb, var(--shell) 82%, transparent);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom-color: var(--line);
+}
+
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.mark {
+  font-family: var(--serif);
+  font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 40;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--tide);
+  display: inline-block;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.4vw, 34px);
+  font-size: 14px;
+  letter-spacing: -0.005em;
+}
+
+.links a { color: var(--ink-2); transition: color 0.3s var(--ease); }
+.links a:hover { color: var(--ink); }
+.links .on { color: var(--ink); }
+
+.cta {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  padding: 7px 12px 6px;
+  border-radius: 999px;
+  color: var(--ink) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.cta::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--tide);
+  animation: pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.cta:hover { border-color: var(--ink); }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  background: var(--raise);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  font-size: 13px;
+}
+.skip:focus { left: var(--pad); }
+
+@media (max-width: 620px) {
+  .cta { display: none; }
+  .inner { padding: 14px var(--pad); }
+}

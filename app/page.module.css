@@ -1,0 +1,12 @@
+.statement {
+  padding: clamp(80px, 13vw, 190px) 0 clamp(40px, 6vw, 80px);
+}
+
+.line {
+  max-width: 19ch;
+  font-size: clamp(30px, 5.4vw, 84px);
+  letter-spacing: -0.032em;
+  line-height: 0.98;
+}
+
+.line em { color: var(--tide); }

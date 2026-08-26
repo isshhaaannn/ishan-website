@@ -1,0 +1,40 @@
+import Link from 'next/link'
+import s from './ArchiveStrip.module.css'
+
+// The are.na move: show the sheer volume, keep it calm.
+// Two rows drifting against each other, duplicated so the loop never seams.
+export default function ArchiveStrip({ rows, total }) {
+  return (
+    <section className={s.section}>
+      <div className="shell">
+        <div className={s.head}>
+          <h2 className="mono">Archive</h2>
+          <Link href="/archive" className={s.link}>
+            All {total} creatives
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+              <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4M10.5 2.5V9" stroke="currentColor" strokeWidth="1.2" />
+            </svg>
+          </Link>
+        </div>
+      </div>
+
+      <div className={s.rails} aria-hidden="true">
+        {rows.map((row, r) => (
+          <div key={r} className={`${s.rail} ${r % 2 ? s.back : s.forward}`}>
+            <div className={s.track}>
+              {[0, 1].map((copy) => (
+                <div className={s.set} key={copy}>
+                  {row.map((img, i) => (
+                    <div className={s.cell} key={`${copy}-${i}`} style={{ backgroundColor: img.color }}>
+                      <img src={img.thumb} alt="" loading="lazy" decoding="async" />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}

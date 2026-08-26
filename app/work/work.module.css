@@ -1,0 +1,24 @@
+.page { padding-top: clamp(110px, 14vw, 180px); }
+
+.head { padding-bottom: clamp(20px, 3vw, 40px); }
+
+.title { margin-bottom: clamp(36px, 5vw, 70px); }
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(20px, 2.5vw, 36px);
+  padding-top: clamp(24px, 3vw, 40px);
+  border-top: 1px solid var(--line);
+}
+
+.room { display: flex; flex-direction: column; gap: 7px; }
+
+.roomName {
+  font-family: var(--serif);
+  font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 40;
+  font-size: 22px;
+  letter-spacing: -0.022em;
+}
+
+.roomNote { font-size: 14px; line-height: 1.45; color: var(--ink-2); max-width: 30ch; }
