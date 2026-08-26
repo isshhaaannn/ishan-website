@@ -12,3 +12,4 @@ public/media/
 # Secrets. Never commit.
 .env
 .env.local
+.env/*
