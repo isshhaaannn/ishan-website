@@ -9,7 +9,10 @@ export default function ArchiveStrip({ rows, total }) {
       <div className="shell">
         <div className={s.head}>
           <h2 className="mono">Archive</h2>
-          <Link href="/archive" className={s.link}>
+          {/* The archive RSC payload is ~53KB (524 slides of props), and
+              viewport-prefetch pulled it on every page that links here.
+              prefetch={false} keeps hover-prefetch, drops the idle fetch. */}
+          <Link href="/archive" className={s.link} prefetch={false}>
             All {total} creatives
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
               <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4M10.5 2.5V9" stroke="currentColor" strokeWidth="1.2" />

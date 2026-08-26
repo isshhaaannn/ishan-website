@@ -21,7 +21,7 @@ export default function Footer() {
             <div>
               <span className="mono">Pages</span>
               <Link href="/work">Work</Link>
-              <Link href="/archive">Archive</Link>
+              <Link href="/archive" prefetch={false}>Archive</Link>
               <Link href="/about">About</Link>
             </div>
             <div>
