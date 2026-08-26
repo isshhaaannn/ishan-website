@@ -8,7 +8,6 @@ import s from './ArchiveGrid.module.css'
 // on a single column rhythm so 500 images still scan as one surface.
 export default function ArchiveGrid({ slides, rooms, projects }) {
   const [room, setRoom] = useState('all')
-  const [hover, setHover] = useState(null)
 
   const projectRoom = useMemo(() => {
     const map = {}
@@ -57,11 +56,16 @@ export default function ArchiveGrid({ slides, rooms, projects }) {
             href={`/work/${slide.project}`}
             className={s.cell}
             style={{ backgroundColor: slide.color }}
-            onMouseEnter={() => setHover(slide.id)}
-            onMouseLeave={() => setHover(null)}
           >
-            <img src={slide.thumb} alt={`${slide.projectTitle}, ${slide.section}`} loading="lazy" decoding="async" />
-            <span className={`${s.tag} ${hover === slide.id ? s.tagOn : ''}`}>
+            <img
+              src={slide.small}
+              srcSet={`${slide.small} 260w, ${slide.thumb} 520w`}
+              sizes="(min-width: 1600px) 190px, (min-width: 1000px) 12vw, 135px"
+              alt={`${slide.projectTitle}, ${slide.section}`}
+              loading="lazy"
+              decoding="async"
+            />
+            <span className={s.tag}>
               <span className={s.tagTitle}>{slide.projectTitle}</span>
               <span className="mono">{slide.section}</span>
             </span>

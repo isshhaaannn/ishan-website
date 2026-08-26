@@ -7,7 +7,12 @@ const ROOT = path.resolve(import.meta.dirname, '..')
 const RAW = path.join(ROOT, 'assets', 'raw')
 const OUT = path.join(ROOT, 'public', 'media')
 
-const SIZES = { thumb: 520, full: 1400 }
+// Four tiers, because the grids render cells far smaller than a thumb and the
+// cards render far larger. `small` is 1x grid cells, `thumb` is 2x cells and
+// the filmstrips, `mid` is the cards and the mobile lead image, `full` is the
+// desktop lead image and the scrubber. Emitted as srcset; the browser picks.
+const SIZES = { small: 260, thumb: 520, mid: 900, full: 1400 }
+const QUALITY = { small: 70, thumb: 72, mid: 80, full: 82 }
 
 const exists = async (p) => !!(await fs.stat(p).catch(() => null))
 
@@ -62,7 +67,7 @@ async function processImage(rel) {
     if (!(await exists(dest))) {
       await sharp(src, { failOn: 'none' })
         .resize({ width: Math.min(w, meta.width || w), withoutEnlargement: true })
-        .webp({ quality: label === 'thumb' ? 72 : 82, effort: 4 })
+        .webp({ quality: QUALITY[label], effort: 4 })
         .toFile(dest)
     }
     out[label] = `/media/${key}--${label}.webp`
@@ -80,6 +85,8 @@ async function processImage(rel) {
     id: key.replace(/[^a-z0-9]+/gi, '-').toLowerCase(),
     src: out.full,
     thumb: out.thumb,
+    small: out.small,
+    mid: out.mid,
     w: meta.width || 1000,
     h: meta.height || 1000,
     color: hex,

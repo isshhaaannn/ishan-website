@@ -54,6 +54,9 @@
   aspect-ratio: 4 / 5;
   overflow: hidden;
   display: block;
+  /* 500+ tiles: let the browser skip layout/paint for the ones off-screen.
+     aspect-ratio still sizes the box, so scroll height and CLS are unaffected. */
+  content-visibility: auto;
 }
 
 .cell img {
@@ -79,7 +82,8 @@
   transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
 }
 
-.tagOn { opacity: 1; transform: none; }
+.cell:hover .tag,
+.cell:focus-visible .tag { opacity: 1; transform: none; }
 
 .tagTitle {
   font-size: 12px;

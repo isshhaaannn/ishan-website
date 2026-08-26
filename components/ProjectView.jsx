@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import SlideViewer from './SlideViewer'
-import Reveal from './Reveal'
 import s from './ProjectView.module.css'
 
 // Each run in this project is one carousel, so it renders as one filmstrip.
@@ -42,17 +41,21 @@ export default function ProjectView({ project, next }) {
           </div>
         </header>
 
-        <Reveal className={s.coverWrap}>
+        {/* Deliberately not wrapped in Reveal: this is the LCP element, and a
+            fade gated on hydration delays the paint by a second or more. */}
+        <div className={s.coverWrap}>
           <div className={s.cover} style={{ backgroundColor: project.cover.color }}>
             <img
               src={project.cover.src}
               alt={`${project.title} lead image`}
               width={project.cover.w}
               height={project.cover.h}
+              fetchPriority="high"
+              decoding="async"
               className={s.coverImg}
             />
           </div>
-        </Reveal>
+        </div>
 
         <div className={s.runs}>
           {project.sections.map((run, i) => (
