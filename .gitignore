@@ -8,3 +8,7 @@ assets/raw/
 # Derivatives live in the bucket, not the deployment.
 # Rebuild with `node scripts/build-catalog.mjs`, ship with `scripts/upload-media.mjs`.
 public/media/
+
+# Secrets. Never commit.
+.env
+.env.local
