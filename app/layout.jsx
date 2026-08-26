@@ -18,6 +18,18 @@ const dmMono = DM_Mono({
   variable: '--font-dm-mono',
 })
 
+// Every image now comes from the storage bucket, so the browser has to open a
+// second connection before it can start the LCP image. Warming it here takes
+// the DNS and TLS round trips off the critical path. Derived from the same env
+// var lib/catalog.js rebases with, so it can never drift from the real origin.
+const MEDIA_ORIGIN = (() => {
+  try {
+    return new URL(process.env.NEXT_PUBLIC_MEDIA_BASE).origin
+  } catch {
+    return null
+  }
+})()
+
 export const metadata = {
   title: 'Ishaan',
   description: 'Designer. Social first, everything after.',
@@ -35,6 +47,14 @@ export default function RootLayout({ children }) {
     // `js` is rendered on the server so hydration matches; CSS restores the
     // revealed state for anyone without scripting.
     <html lang="en" className={`${fraunces.variable} ${dmMono.variable} js`}>
+      <head>
+        {MEDIA_ORIGIN && (
+          <>
+            <link rel="preconnect" href={MEDIA_ORIGIN} />
+            <link rel="dns-prefetch" href={MEDIA_ORIGIN} />
+          </>
+        )}
+      </head>
       <body>
         <SmoothScroll />
         <Nav />
