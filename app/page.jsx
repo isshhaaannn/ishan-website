@@ -6,8 +6,9 @@ import Reveal from '@/components/Reveal'
 import { getCatalog, getProject, allSlides, spread } from '@/lib/catalog'
 import s from './page.module.css'
 
-// The six that open the site. Range first, volume second.
-const FEATURED = ['metromedia', 'vryks', 'daily-mail', 'kelme', 'berribot', 'jerseyfolio']
+// The ones that open the site. Range first, volume second.
+// 'daily-mail' is withheld for now — see HIDDEN in data/structure.mjs.
+const FEATURED = ['metromedia', 'vryks', /* 'daily-mail', */ 'kelme', 'berribot', 'jerseyfolio']
 
 export default function Home() {
   const catalog = getCatalog()

@@ -80,6 +80,14 @@ export const PROJECTS = [
   },
 ]
 
+// Temporarily withheld from the site. The source frames stay in assets/raw and
+// the derivatives stay in the bucket — this only stops the project entering the
+// catalog, so restoring it is a one-line edit and a `build-catalog.mjs` run.
+// Applies to hand-written PROJECTS and auto-generated social clients alike.
+export const HIDDEN = [
+  'daily-mail',
+]
+
 // Social clients become projects automatically from the folder tree.
 // These two are handled above as full case studies, so they are skipped here.
 export const SOCIAL_HANDLED = ['passion-carousels', 'berribot']

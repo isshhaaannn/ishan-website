@@ -8,7 +8,8 @@ export const metadata = {
 }
 
 const CLIENTS = [
-  'MetroMedia', 'Daily Mail', 'Steven Bartlett', 'eu.vc', 'Journey Club',
+  // 'Daily Mail' withheld for now — see HIDDEN in data/structure.mjs.
+  'MetroMedia', /* 'Daily Mail', */ 'Steven Bartlett', 'eu.vc', 'Journey Club',
   'Arthur Brooks', 'Berribot', 'Vryks', 'Kelme India', 'Chris Goode',
   'Kane Kallaway', 'Bizzie', 'SeeIt', 'BYL Ventures', 'Wild Oak', 'Firi',
 ]

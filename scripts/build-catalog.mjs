@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import sharp from 'sharp'
-import { ROOMS, PROJECTS, SOCIAL_HANDLED, SOCIAL_META } from '../data/structure.mjs'
+import { ROOMS, PROJECTS, SOCIAL_HANDLED, SOCIAL_META, HIDDEN } from '../data/structure.mjs'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
 const RAW = path.join(ROOT, 'assets', 'raw')
@@ -129,8 +129,15 @@ async function main() {
     })
   }
 
+  const hidden = defs.filter((d) => HIDDEN.includes(d.id))
+  if (hidden.length) {
+    console.log(`  withholding ${hidden.length}: ${hidden.map((d) => d.id).join(', ')}`)
+  }
+
   const staged = []
-  for (const def of defs) staged.push(await buildProject(def))
+  for (const def of defs.filter((d) => !HIDDEN.includes(d.id))) {
+    staged.push(await buildProject(def))
+  }
 
   console.log(`  ${total.n} images to process`)
 
